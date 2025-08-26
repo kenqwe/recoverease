@@ -6,9 +6,36 @@
         <img src="/logo.png" alt="RecoverEase" class="w-12 h-12" />
         <span class="font-semibold text-lg">RecoverEase</span>
       </div>
-      <div class="flex items-center space-x-1">
+
+      <!-- Profile + Hamburger -->
+      <div class="flex items-center space-x-2 relative">
         <span class="font-semibold">Ken Cartaciano</span>
         <img src="/logo.png" alt="Profile" class="w-12 h-12 rounded-full border border-gray-300" />
+
+        <!-- Hamburger Button -->
+        <button @click="toggleMenu" class="p-2 rounded-md focus:outline-none">
+          <div class="space-y-1">
+            <span class="block w-6 h-0.5 bg-red-500"></span>
+            <span class="block w-6 h-0.5 bg-red-500"></span>
+            <span class="block w-6 h-0.5 bg-red-500"></span>
+          </div>
+        </button>
+
+        <!-- Dropdown Menu -->
+        <div
+          v-if="isOpen"
+          class="absolute right-0 top-14 mt-2 w-40 bg-white rounded-md shadow-lg z-50"
+        >
+          <button @click="editprofile" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+            Edit Profile
+          </button>
+          <button
+            @click="logout"
+            class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
+          >
+            Log Out
+          </button>
+        </div>
       </div>
     </div>
 
@@ -40,7 +67,9 @@
       <router-link to="/exerciseguide"
         ><FeatureCard title="Exercise Guide" icon="/exercise.png"
       /></router-link>
-      <FeatureCard title="Speech Practice" icon="/speech.png" />
+      <router-link to="/speechpractice">
+        <FeatureCard title="Speech Practice" icon="/speech.png" />
+      </router-link>
       <FeatureCard title="Cognitive Games" icon="/brain.png" />
       <FeatureCard title="My Medications" icon="/meds.png" />
       <FeatureCard title="Connect Caregiver" icon="/connect.png" />
@@ -50,5 +79,22 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import FeatureCard from '../components/FeatureCard.vue'
+
+const router = useRouter()
+const isOpen = ref(false)
+
+const toggleMenu = () => {
+  isOpen.value = !isOpen.value
+}
+
+const logout = () => {
+  localStorage.removeItem('user')
+  router.push('/login')
+}
+const editprofile = () => {
+  router.push('/editprofile')
+}
 </script>

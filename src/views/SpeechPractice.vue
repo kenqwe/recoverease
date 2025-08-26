@@ -1,4 +1,3 @@
-<!-- ExerciseGuideStep1.vue -->
 <template>
   <div class="flex flex-col items-center justify-center p-6 bg-gray-50">
     <!-- Header -->
@@ -44,29 +43,36 @@
       </div>
     </div>
 
-    <!-- Title -->
+    <!-- Section Title -->
     <div class="w-full text-center mb-2 text-white bg-teal-600 font-bold py-2">EXERCISE GUIDE</div>
+    <!-- Content -->
+    <div class="flex flex-col items-center justify-center flex-1 p-6 space-y-6">
+      <h2 class="text-lg italic font-semibold text-gray-700">Choose Difficulty Level</h2>
 
-    <!-- Subtitle -->
-    <div class="w-full text-center mb-6 text-white bg-red-400 font-semibold py-2 px-2 text-sm">
-      Which part(s) of your body is affected by the stroke?
+      <!-- Buttons -->
+      <div class="flex flex-col space-y-4 w-full max-w-xs text-left mb-8 justify-center">
+        <button
+          class="w-full py-3 rounded-lg bg-green-400 text-black font-bold shadow hover:bg-green-500 transition"
+          @click="selectLevel('easy')"
+        >
+          EASY (3–5 WORDS)
+        </button>
+
+        <button
+          class="w-full py-3 rounded-lg bg-orange-300 text-black font-bold shadow hover:bg-orange-400 transition"
+          @click="selectLevel('medium')"
+        >
+          MEDIUM (6–9 WORDS)
+        </button>
+
+        <button
+          class="w-full py-3 rounded-lg bg-red-400 text-black font-bold shadow hover:bg-red-500 transition"
+          @click="selectLevel('hard')"
+        >
+          HARD (10+ WORDS)
+        </button>
+      </div>
     </div>
-
-    <!-- Checkbox list -->
-    <div class="flex flex-col space-y-4 w-full max-w-xs text-left mb-8 justify-center">
-      <label v-for="(part, index) in bodyParts" :key="index" class="flex items-center space-x-3">
-        <input type="checkbox" v-model="selectedParts" :value="part" class="w-5 h-5" />
-        <span>{{ part }}</span>
-      </label>
-    </div>
-
-    <!-- Next button -->
-    <button
-      @click="goToNext"
-      class="bg-teal-600 text-white px-8 py-2 rounded-md font-semibold hover:bg-teal-700 transition"
-    >
-      Next →
-    </button>
   </div>
 </template>
 
@@ -76,18 +82,14 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
-const bodyParts = ['Face/Mouth', 'Left Arm', 'Right Arm', 'Left Leg', 'Right Leg', 'Hand/Arm']
-
-const selectedParts = ref([])
+function selectLevel(level) {
+  // Navigate to a practice screen depending on level
+  router.push(`/speech-practice/${level}`)
+}
 const isOpen = ref(false)
 
 const toggleMenu = () => {
   isOpen.value = !isOpen.value
-}
-
-const goToNext = () => {
-  console.log('Selected parts:', selectedParts.value)
-  // Navigate to next screen
 }
 
 const logout = () => {

@@ -5,6 +5,8 @@ import LoginView from '@/views/LoginView.vue'
 import DashboardView from '@/views/DashboardView.vue'
 import ForgotPassword from '@/views/ForgotPassword.vue'
 import ExerciseGuide from '@/views/ExerciseGuide.vue'
+import EditProfile from '@/views/EditProfile.vue'
+import SpeechPractice from '@/views/SpeechPractice.vue'
 
 const routes = [
   { path: '/', name: 'Home', component: HomeView }, // default to login
@@ -13,6 +15,8 @@ const routes = [
   { path: '/dashboard', name: 'Dashboard', component: DashboardView },
   { path: '/forgotpassword', name: 'ForgotPassword', component: ForgotPassword },
   { path: '/exerciseguide', name: 'ExerciseGuide', component: ExerciseGuide },
+  { path: '/editprofile', name: 'EditProfile', component: EditProfile },
+  { path: '/speechpractice', name: 'SpeechPractice', component: SpeechPractice },
 ]
 
 const router = createRouter({

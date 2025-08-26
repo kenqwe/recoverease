@@ -35,13 +35,14 @@
             </span>
           </button>
         </div>
-
-        <button
-          type="submit"
-          class="w-full bg-teal-600 text-white py-2 rounded hover:bg-teal-700 mb-3"
-        >
-          <router-link to="/dashboard">Sign In</router-link>
-        </button>
+        <router-link to="/dashboard">
+          <button
+            type="submit"
+            class="w-full bg-teal-600 text-white py-2 rounded hover:bg-teal-700 mb-3"
+          >
+            Sign In
+          </button>
+        </router-link>
       </form>
 
       <div class="text-center text-sm text-gray-600">

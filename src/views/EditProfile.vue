@@ -1,12 +1,10 @@
 <template>
   <div class="flex flex-col items-center p-6 bg-gray-50 min-h-screen">
-    <!-- Logo + Title -->
     <div class="w-full flex justify-start items-center mb-6">
-      <img src="/logo.png" alt="RecoverEase Logo" class="h-14 w-14" />
+      <img src="/logo.png" alt="RecoverEase Logo" class="h-14 w-15" />
       <h1 class="ml-3 text-xl font-bold text-gray-800">Edit Profile</h1>
     </div>
 
-    <!-- Profile Picture -->
     <div class="flex flex-col items-center mb-6">
       <div
         class="w-24 h-24 rounded-full border border-gray-300 flex items-center justify-center text-gray-500"
@@ -31,9 +29,7 @@
       </button>
     </div>
 
-    <!-- Form -->
     <form @submit.prevent="saveProfile" class="bg-white w-full max-w-md p-6 rounded-lg shadow">
-      <!-- First Name -->
       <div class="mb-4">
         <label for="firstName" class="block text-sm font-medium text-gray-700"> First Name: </label>
         <input
@@ -44,7 +40,6 @@
         />
       </div>
 
-      <!-- Last Name -->
       <div class="mb-4">
         <label for="lastName" class="block text-sm font-medium text-gray-700"> Last Name: </label>
         <input
@@ -55,7 +50,6 @@
         />
       </div>
 
-      <!-- Buttons -->
       <div class="flex justify-between mt-6">
         <button
           type="button"

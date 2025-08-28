@@ -1,5 +1,6 @@
 <template>
   <div class="flex flex-col items-center justify-center p-6 bg-gray-50">
+    <!-- Header (same as speechpractice.vue) -->
     <div class="flex justify-between items-center w-full mb-4">
       <router-link to="/dashboard">
         <img src="/home.png" alt="Logo" class="h-12" />
@@ -40,31 +41,42 @@
 
     <!-- Section Title -->
     <div class="w-full text-center mb-2 text-white bg-teal-600 font-bold py-2">SPEECH PRACTICE</div>
-    <!-- Content -->
-    <div class="flex flex-col items-center justify-center flex-1 p-6 space-y-6">
-      <h2 class="text-lg italic font-semibold text-gray-700">Choose Difficulty Level</h2>
 
-      <!-- Buttons -->
-      <div class="flex flex-col space-y-4 w-full max-w-xs text-left mb-8 justify-center">
+    <!-- Content (Practice Page) -->
+    <div class="flex flex-col items-center justify-center flex-1 space-y-8 w-full">
+      <h2 class="text-lg font-bold text-gray-700">HARD (10+)</h2>
+
+      <p class="text-xl font-semibold italic">
+        "My family and friends give me strength and hope during this long recovery process"
+      </p>
+
+      <!-- Play + Record -->
+      <div class="flex flex-col items-center space-y-6">
         <button
-          class="w-full py-3 rounded-lg bg-green-400 text-black font-bold shadow hover:bg-green-500 transition"
-          @click="selectLevel('easy')"
+          class="flex items-center space-x-2 text-gray-700 hover:text-teal-600"
+          @click="playSentence"
         >
-          EASY (3–5 WORDS)
+          <span>Play sentence</span>
         </button>
 
         <button
-          class="w-full py-3 rounded-lg bg-orange-300 text-black font-bold shadow hover:bg-orange-400 transition"
-          @click="selectLevel('medium')"
+          class="flex items-center space-x-2 text-gray-700 hover:text-teal-600"
+          @click="recordSpeech"
         >
-          MEDIUM (6–9 WORDS)
+          <span>Tap to record</span>
         </button>
+      </div>
 
+      <!-- Navigation -->
+      <div class="flex space-x-6 mt-8">
         <button
-          class="w-full py-3 rounded-lg bg-red-400 text-black font-bold shadow hover:bg-red-500 transition"
-          @click="selectLevel('hard')"
+          @click="back"
+          class="px-6 py-2 rounded-lg bg-red-400 text-white font-bold hover:bg-red-500"
         >
-          HARD (10+ WORDS)
+          BACK
+        </button>
+        <button class="px-6 py-2 rounded-lg bg-teal-500 text-white font-bold hover:bg-teal-600">
+          SKIP
         </button>
       </div>
     </div>
@@ -76,11 +88,6 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
-
-function selectLevel(level) {
-  // Navigate to a practice screen depending on level
-  router.push(`/speechpractice${level}`)
-}
 const isOpen = ref(false)
 
 const toggleMenu = () => {
@@ -88,10 +95,22 @@ const toggleMenu = () => {
 }
 
 const logout = () => {
-  // Clear any stored session/token here if you have one
   router.push('/login')
 }
 const editprofile = () => {
   router.push('/editprofile')
+}
+const back = () => {
+  router.push('/speechpractice')
+}
+const playSentence = () => {
+  const utterance = new SpeechSynthesisUtterance(
+    'My family and friends give me strength and hope during this long recovery process',
+  )
+  speechSynthesis.speak(utterance)
+}
+
+const recordSpeech = () => {
+  alert('Recording function coming soon…')
 }
 </script>

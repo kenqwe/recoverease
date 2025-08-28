@@ -3,8 +3,7 @@
     <!-- Header -->
     <div class="flex justify-between items-center mb-6">
       <div class="flex items-center space-x-1">
-        <img src="/logo.png" alt="RecoverEase" class="w-12 h-12" />
-        <span class="font-semibold text-lg">RecoverEase</span>
+        <img src="/logo.png" alt="RecoverEase" class="w-13 h-12" />
       </div>
 
       <!-- Profile + Hamburger -->
@@ -71,7 +70,9 @@
         <FeatureCard title="Speech Practice" icon="/speech.png" />
       </router-link>
       <FeatureCard title="Cognitive Games" icon="/brain.png" />
-      <FeatureCard title="My Medications" icon="/meds.png" />
+      <router-link to="/medication">
+        <FeatureCard title="My Medications" icon="/meds.png" />
+      </router-link>
       <FeatureCard title="Connect Caregiver" icon="/connect.png" />
       <FeatureCard title="Emergency" icon="/emergency.png" />
     </div>

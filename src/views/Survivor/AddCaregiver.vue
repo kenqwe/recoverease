@@ -1,4 +1,3 @@
-<!-- ExerciseGuideStep1.vue -->
 <template>
   <div class="flex flex-col items-center justify-center p-6 bg-gray-50">
     <!-- Header -->
@@ -17,7 +16,6 @@
           class="h-12 w-12 rounded-full border border-gray-300"
         />
 
-        <!-- Hamburger Button -->
         <button @click="toggleMenu" class="p-2 rounded-md focus:outline-none">
           <div class="space-y-1">
             <span class="block w-6 h-0.5 bg-red-500"></span>
@@ -26,7 +24,7 @@
           </div>
         </button>
 
-        <!-- Dropdown Menu -->
+        <!-- Dropdown -->
         <div
           v-if="isOpen"
           class="absolute right-0 top-12 mt-2 w-40 bg-white rounded-md shadow-lg z-50"
@@ -45,58 +43,69 @@
     </div>
 
     <!-- Title -->
-    <div class="w-full text-center mb-2 text-white bg-teal-600 font-bold py-2">EXERCISE GUIDE</div>
-
-    <!-- Subtitle -->
-    <div class="w-full text-center mb-6 text-white bg-red-400 font-semibold py-2 px-2 text-sm">
-      Which part(s) of your body is affected by the stroke?
+    <div class="w-full text-center mb-2 text-white bg-teal-600 font-bold py-2">
+      CONNECT CAREGIVER
     </div>
 
-    <!-- Checkbox list -->
-    <div
-      class="flex flex-col space-y-4 w-full w-full max-w-xs text-left mb-8 items center justify-center"
-    >
-      <label v-for="(part, index) in bodyParts" :key="index" class="flex items-center space-x-3">
-        <input type="checkbox" v-model="selectedParts" :value="part" class="w-5 h-5" />
-        <span>{{ part }}</span>
-      </label>
+    <!-- Instruction -->
+    <p class="text-center text-gray-600 mb-4 text-sm">
+      Share this QR or PIN with your caregiver so they can connect to your profile
+    </p>
+
+    <!-- QR Code -->
+    <div class="flex flex-col items-center mb-6">
+      <p class="font-semibold mb-2">QR CODE</p>
+      <img src="/qrcode.png" alt="QR Code" class="w-40 h-40 border p-2 bg-white shadow" />
     </div>
 
-    <!-- Next button -->
-    <button
-      @click="goToNext"
-      class="bg-teal-600 text-white px-8 py-2 rounded-md font-semibold hover:bg-teal-700 transition"
-    >
-      Next →
+    <!-- PIN Code -->
+    <div class="flex flex-col items-center mb-6">
+      <p class="font-semibold mb-2">PIN CODE</p>
+      <div class="flex space-x-4">
+        <span
+          v-for="(digit, index) in pin"
+          :key="index"
+          class="text-lg font-bold border-b-2 border-gray-400 px-2"
+        >
+          {{ digit }}
+        </span>
+      </div>
+    </div>
+
+    <!-- Close Button -->
+    <button @click="close" class="bg-red-400 text-white font-semibold px-6 py-2 rounded-lg shadow">
+      CLOSE
     </button>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
-
-const bodyParts = ['Face/Mouth', 'Left Arm', 'Right Arm', 'Left Leg', 'Right Leg', 'Hand/Arm']
-
-const selectedParts = ref([])
 const isOpen = ref(false)
+const pin = ref([])
+
+// Generate random 6-digit PIN on load
+const generatePin = () => {
+  pin.value = Array.from({ length: 6 }, () => Math.floor(Math.random() * 10).toString())
+}
+
+onMounted(() => {
+  generatePin()
+})
 
 const toggleMenu = () => {
   isOpen.value = !isOpen.value
 }
-
-const goToNext = () => {
-  console.log('Selected parts:', selectedParts.value)
-  // Navigate to next screen
-}
-
 const logout = () => {
-  // Clear any stored session/token here if you have one
   router.push('/login')
 }
 const editprofile = () => {
-  router.push('/editprofile')
+  router.push('/editprofilesurvivor')
+}
+const close = () => {
+  router.push('/dashboard')
 }
 </script>

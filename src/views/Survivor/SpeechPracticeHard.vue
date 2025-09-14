@@ -98,7 +98,7 @@ const logout = () => {
   router.push('/login')
 }
 const editprofile = () => {
-  router.push('/editprofile')
+  router.push('/editprofilesurvivor')
 }
 const back = () => {
   router.push('/speechpractice')

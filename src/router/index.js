@@ -1,16 +1,23 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import RegisterView from '../views/RegisterView.vue'
-import LoginView from '@/views/LoginView.vue'
-import DashboardView from '@/views/DashboardView.vue'
-import ForgotPassword from '@/views/ForgotPassword.vue'
-import ExerciseGuide from '@/views/ExerciseGuide.vue'
-import EditProfile from '@/views/EditProfile.vue'
-import SpeechPractice from '@/views/SpeechPractice.vue'
-import SpeechPracticeEasy from '@/views/SpeechPracticeEasy.vue'
-import SpeechPracticeMedium from '@/views/SpeechPracticeMedium.vue'
-import SpeechPracticeHard from '@/views/SpeechPracticeHard.vue'
-import MedicationView from '@/views/MedicationView.vue'
-import AddMedication from '@/views/AddMedication.vue'
+import RegisterView from '../views/Auth/RegisterView.vue'
+import LoginView from '@/views/Auth/LoginView.vue'
+import DashboardView from '@/views/Survivor/DashboardView.vue'
+import ForgotPassword from '@/views/Auth/ForgotPassword.vue'
+import ExerciseGuide from '@/views/Survivor/ExerciseGuide.vue'
+import SpeechPractice from '@/views/Survivor/SpeechPractice.vue'
+import SpeechPracticeEasy from '@/views/Survivor/SpeechPracticeEasy.vue'
+import SpeechPracticeMedium from '@/views/Survivor/SpeechPracticeMedium.vue'
+import SpeechPracticeHard from '@/views/Survivor/SpeechPracticeHard.vue'
+import MedicationView from '@/views/Survivor/MedicationView.vue'
+import AddMedication from '@/views/Survivor/AddMedication.vue'
+import ConnectCaregiver from '@/views/Survivor/ConnectCaregiver.vue'
+import AddCaregiver from '@/views/Survivor/AddCaregiver.vue'
+import ExerciseList from '@/views/Survivor/ExerciseList.vue'
+import CaregiverDashboard from '@/views/Caregiver/CaregiverDashboard.vue'
+import EmergencyLog from '@/views/Caregiver/EmergencyLog.vue'
+import EditProfileCaregiver from '@/views/Caregiver/EditProfileCaregiver.vue'
+import EditProfileSurvivor from '@/views/Survivor/EditProfileSurvivor.vue'
+import CaregiverExerciseList from '@/views/Caregiver/CaregiverExerciseList.vue'
 
 const routes = [
   { path: '/', name: 'Login', component: LoginView }, // landing page is LoginView
@@ -19,13 +26,24 @@ const routes = [
   { path: '/dashboard', name: 'Dashboard', component: DashboardView },
   { path: '/forgotpassword', name: 'ForgotPassword', component: ForgotPassword },
   { path: '/exerciseguide', name: 'ExerciseGuide', component: ExerciseGuide },
-  { path: '/editprofile', name: 'EditProfile', component: EditProfile },
+  { path: '/editprofilesurvivor', name: 'EditProfileSurvivor', component: EditProfileSurvivor },
+  { path: '/editprofilecaregiver', name: 'EditProfileCaregiver', component: EditProfileCaregiver },
   { path: '/speechpractice', name: 'SpeechPractice', component: SpeechPractice },
   { path: '/speechpracticeeasy', name: 'SpeechPracticeEasy', component: SpeechPracticeEasy },
   { path: '/speechpracticemedium', name: 'SpeechPracticeMedium', component: SpeechPracticeMedium },
   { path: '/speechpracticehard', name: 'SpeechPracticeHard', component: SpeechPracticeHard },
   { path: '/medication', name: 'Medication', component: MedicationView },
   { path: '/addmedication', name: 'AddMedication', component: AddMedication },
+  { path: '/connectcaregiver', name: 'ConnectCaregiver', component: ConnectCaregiver },
+  { path: '/addcaregiver', name: 'AddCaregiver', component: AddCaregiver },
+  { path: '/exerciselist', name: 'ExerciseList', component: ExerciseList },
+  {
+    path: '/caregiverexerciselist',
+    name: 'CaregiverExerciseList',
+    component: CaregiverExerciseList,
+  },
+  { path: '/caregiverdashboard', name: 'CaregiverDashboard', component: CaregiverDashboard },
+  { path: '/emergencylog', name: 'EmergencyLog', component: EmergencyLog },
 ]
 
 const router = createRouter({

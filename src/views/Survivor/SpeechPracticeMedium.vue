@@ -44,9 +44,9 @@
 
     <!-- Content (Practice Page) -->
     <div class="flex flex-col items-center justify-center flex-1 space-y-8 w-full">
-      <h2 class="text-lg font-bold text-gray-700">EASY (3-5)</h2>
+      <h2 class="text-lg font-bold text-gray-700">MEDIUM (6-9)</h2>
 
-      <p class="text-xl font-semibold italic">"I am okay"</p>
+      <p class="text-xl font-semibold italic">"I want to practice speaking more with you"</p>
 
       <!-- Play + Record -->
       <div class="flex flex-col items-center space-y-6">
@@ -96,13 +96,13 @@ const logout = () => {
   router.push('/login')
 }
 const editprofile = () => {
-  router.push('/editprofile')
+  router.push('/editprofilesurvivor')
 }
 const back = () => {
   router.push('/speechpractice')
 }
 const playSentence = () => {
-  const utterance = new SpeechSynthesisUtterance('I am okay')
+  const utterance = new SpeechSynthesisUtterance('I want to practice speaking more with you')
   speechSynthesis.speak(utterance)
 }
 

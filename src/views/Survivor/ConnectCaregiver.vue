@@ -38,37 +38,52 @@
       </div>
     </div>
 
-    <!-- Section Title -->
-    <div class="w-full text-center mb-2 text-white bg-teal-600 font-bold py-2">SPEECH PRACTICE</div>
-    <!-- Content -->
+    <div class="w-full text-center mb-2 text-white bg-teal-600 font-bold py-2">
+      CONNECT CAREGIVER
+    </div>
+
     <div class="flex flex-col items-center justify-center flex-1 p-6 space-y-6">
-      <h2 class="text-lg italic font-semibold text-gray-700">Choose Difficulty Level</h2>
-
-      <!-- Buttons -->
-      <div class="flex flex-col space-y-4 w-full max-w-xs text-left mb-8 justify-center">
-        <button
-          class="w-full py-3 rounded-lg bg-green-400 text-black font-bold shadow hover:bg-green-500 transition"
-          @click="selectLevel('easy')"
-        >
-          EASY (3–5 WORDS)
-        </button>
-
-        <button
-          class="w-full py-3 rounded-lg bg-orange-300 text-black font-bold shadow hover:bg-orange-400 transition"
-          @click="selectLevel('medium')"
-        >
-          MEDIUM (6–9 WORDS)
-        </button>
-
-        <button
-          class="w-full py-3 rounded-lg bg-red-400 text-black font-bold shadow hover:bg-red-500 transition"
-          @click="selectLevel('hard')"
-        >
-          HARD (10+ WORDS)
-        </button>
-      </div>
+      <h2 class="text-lg italic font-semibold text-gray-700">CONNECTED CAREGIVER</h2>
     </div>
   </div>
+  <div class="bg-white rounded-lg shadow p-4 mb-4">
+    <div class="flex justify-between items-center mb-2">
+      <p class="font-semibold text-lg">John Rey Cañete</p>
+      <span class="bg-green-500 text-white text-xs px-3 py-1 rounded-full"> CONNECTED </span>
+    </div>
+
+    <div class="flex items-center space-x-2 text-sm text-gray-600 mb-1">
+      <span class="text-gray-500">📧</span>
+      <p>johnyrebc.4@gmail.com</p>
+    </div>
+
+    <div class="flex items-center space-x-2 text-sm text-gray-600">
+      <span class="text-gray-500">📞</span>
+      <p>09662314758</p>
+    </div>
+  </div>
+  <div class="bg-white rounded-lg shadow p-4 mb-4">
+    <div class="flex justify-between items-center mb-2">
+      <p class="font-semibold text-lg">Ken Cartaciano</p>
+      <span class="bg-green-500 text-white text-xs px-3 py-1 rounded-full"> CONNECTED </span>
+    </div>
+
+    <div class="flex items-center space-x-2 text-sm text-gray-600 mb-1">
+      <span class="text-gray-500">📧</span>
+      <p>kenC@gmail.com</p>
+    </div>
+
+    <div class="flex items-center space-x-2 text-sm text-gray-600">
+      <span class="text-gray-500">📞</span>
+      <p>09958359465</p>
+    </div>
+  </div>
+  <router-link
+    to="/addcaregiver"
+    class="block bg-teal-600 text-white px-4 py-2 rounded-lg w-full text-center"
+  >
+    ADD CAREGIVER
+  </router-link>
 </template>
 
 <script setup>
@@ -77,10 +92,6 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
-function selectLevel(level) {
-  // Navigate to a practice screen depending on level
-  router.push(`/speechpractice${level}`)
-}
 const isOpen = ref(false)
 
 const toggleMenu = () => {
@@ -92,6 +103,6 @@ const logout = () => {
   router.push('/login')
 }
 const editprofile = () => {
-  router.push('/editprofile')
+  router.push('/editprofilesurvivor')
 }
 </script>

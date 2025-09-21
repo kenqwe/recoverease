@@ -1,12 +1,12 @@
 <template>
   <div class="flex flex-col items-center justify-center p-6 bg-gray-50">
     <div class="flex justify-between items-center w-full mb-4">
-      <router-link to="/dashboard">
+      <router-link to="/caregiverdashboard">
         <img src="/home.png" alt="Logo" class="h-12" />
       </router-link>
 
       <div class="flex items-center space-x-2 relative">
-        <span class="text-sm font-medium">Ken Cartaciano</span>
+        <span class="text-sm font-medium">John Rey Canete</span>
         <img
           src="/speech.png"
           alt="Profile"
@@ -39,34 +39,31 @@
     </div>
 
     <div class="w-full text-center mb-2 text-white bg-teal-600 font-bold py-2">
-      CONNECT CAREGIVER
+      CONNECT STROKE SURVIVOR
     </div>
 
     <div class="flex flex-col items-center justify-center flex-1 p-6 space-y-6">
-      <h2 class="text-lg italic font-semibold text-gray-700">CONNECTED CAREGIVER</h2>
+      <h2 class="text-lg italic font-semibold text-gray-700">CONNECTED STROKE SURVIVOR</h2>
     </div>
   </div>
   <div class="bg-white rounded-lg shadow p-4 mb-4">
     <div class="flex justify-between items-center mb-2">
-      <p class="font-semibold text-lg">John Rey Cañete</p>
+      <p class="font-semibold text-lg">Ken Cartaciano</p>
       <span class="bg-green-500 text-white text-xs px-3 py-1 rounded-full"> CONNECTED </span>
     </div>
 
     <div class="flex items-center space-x-2 text-sm text-gray-600 mb-1">
       <span class="text-gray-500">📧</span>
-      <p>johnyrebc.4@gmail.com</p>
+      <p>kenc12@gmail.com</p>
     </div>
 
     <div class="flex items-center space-x-2 text-sm text-gray-600">
       <span class="text-gray-500">📞</span>
-      <p>09662314758</p>
+      <p>09453568232</p>
     </div>
   </div>
-  <router-link
-    to="/addcaregiver"
-    class="block bg-teal-600 text-white px-4 py-2 rounded-lg w-full text-center"
-  >
-    ADD CAREGIVER
+  <router-link to="" class="block bg-teal-600 text-white px-4 py-2 rounded-lg w-full text-center">
+    ADD SURVIVOR
   </router-link>
 </template>
 
@@ -87,6 +84,6 @@ const logout = () => {
   router.push('/login')
 }
 const editprofile = () => {
-  router.push('/editprofilesurvivor')
+  router.push('/editprofilecaregiver')
 }
 </script>

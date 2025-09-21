@@ -88,14 +88,14 @@
       <router-link to="/caregiverexerciselist">
         <FeatureCard title="Monitor Exercise Guide" icon="/exercise.png" />
       </router-link>
-      <router-link to="/">
+      <router-link to="/speechpracticemonitor">
         <FeatureCard title="Speech Practice" icon="/speech.png" />
       </router-link>
       <FeatureCard title="Cognitive Games" icon="/brain.png" />
-      <router-link to="/">
+      <router-link to="CGmedication/">
         <FeatureCard title="Ken Medications" icon="/meds.png" />
       </router-link>
-      <router-link to="/">
+      <router-link to="/connectsurvivor">
         <FeatureCard title="Connect Stroke Survivor" icon="/connect.png" />
       </router-link>
       <!-- Emergency Log direct navigation -->

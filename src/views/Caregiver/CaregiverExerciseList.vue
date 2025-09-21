@@ -73,6 +73,16 @@
       </div>
     </div>
 
+    <!-- Edit Affected Parts Button -->
+    <div class="mt-6 flex justify-center">
+      <button
+        @click="editAffectedParts"
+        class="bg-orange-300 hover:bg-orange-400 text-black font-semibold px-6 py-3 rounded-md shadow-md flex items-center gap-2"
+      >
+        Edit Affected Parts
+      </button>
+    </div>
+
     <!-- Video Modal -->
     <div
       v-if="showVideo"
@@ -138,7 +148,12 @@ const closeVideo = () => {
 const logout = () => {
   router.push('/login')
 }
+
 const editprofile = () => {
   router.push('/editprofilecaregiver')
+}
+
+const editAffectedParts = () => {
+  router.push('/editaffectedparts')
 }
 </script>

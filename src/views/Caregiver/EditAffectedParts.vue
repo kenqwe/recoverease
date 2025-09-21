@@ -1,18 +1,23 @@
+<!-- ExerciseGuideStep1.vue -->
 <template>
   <div class="flex flex-col items-center justify-center p-6 bg-gray-50">
+    <!-- Header -->
     <div class="flex justify-between items-center w-full mb-4">
-      <router-link to="/dashboard">
+      <!-- Home Logo -->
+      <router-link to="/caregiverdashboard">
         <img src="/home.png" alt="Logo" class="h-12" />
       </router-link>
 
+      <!-- Profile + Hamburger Menu -->
       <div class="flex items-center space-x-2 relative">
-        <span class="text-sm font-medium">Ken Cartaciano</span>
+        <span class="text-sm font-medium">John Rey Canete</span>
         <img
           src="/speech.png"
           alt="Profile"
           class="h-12 w-12 rounded-full border border-gray-300"
         />
 
+        <!-- Hamburger Button -->
         <button @click="toggleMenu" class="p-2 rounded-md focus:outline-none">
           <div class="space-y-1">
             <span class="block w-6 h-0.5 bg-red-500"></span>
@@ -21,6 +26,7 @@
           </div>
         </button>
 
+        <!-- Dropdown Menu -->
         <div
           v-if="isOpen"
           class="absolute right-0 top-12 mt-2 w-40 bg-white rounded-md shadow-lg z-50"
@@ -38,36 +44,32 @@
       </div>
     </div>
 
-    <div class="w-full text-center mb-2 text-white bg-teal-600 font-bold py-2">
-      CONNECT CAREGIVER
+    <!-- Title -->
+    <div class="w-full text-center mb-2 text-white bg-teal-600 font-bold py-2">EXERCISE GUIDE</div>
+
+    <!-- Subtitle -->
+    <div class="w-full text-center mb-6 text-white bg-red-400 font-semibold py-2 px-2 text-sm">
+      Which part(s) of your body is affected by the stroke?
     </div>
 
-    <div class="flex flex-col items-center justify-center flex-1 p-6 space-y-6">
-      <h2 class="text-lg italic font-semibold text-gray-700">CONNECTED CAREGIVER</h2>
+    <div class="flex flex-col items-center justify-center p-5 bg-gray-50">
+      <div class="flex flex-col space-y-4 w-full max-w-xs text-left mb-8">
+        <label v-for="(part, index) in bodyParts" :key="index" class="flex items-center space-x-3">
+          <input type="checkbox" v-model="selectedParts" :value="part" class="w-5 h-5" />
+          <span>{{ part }}</span>
+        </label>
+      </div>
+
+      <router-link to="/exerciselist">
+        <button
+          @click="goToNext"
+          class="bg-teal-600 text-white px-8 py-2 rounded-md font-semibold hover:bg-teal-700 transition"
+        >
+          Next →
+        </button>
+      </router-link>
     </div>
   </div>
-  <div class="bg-white rounded-lg shadow p-4 mb-4">
-    <div class="flex justify-between items-center mb-2">
-      <p class="font-semibold text-lg">John Rey Cañete</p>
-      <span class="bg-green-500 text-white text-xs px-3 py-1 rounded-full"> CONNECTED </span>
-    </div>
-
-    <div class="flex items-center space-x-2 text-sm text-gray-600 mb-1">
-      <span class="text-gray-500">📧</span>
-      <p>johnyrebc.4@gmail.com</p>
-    </div>
-
-    <div class="flex items-center space-x-2 text-sm text-gray-600">
-      <span class="text-gray-500">📞</span>
-      <p>09662314758</p>
-    </div>
-  </div>
-  <router-link
-    to="/addcaregiver"
-    class="block bg-teal-600 text-white px-4 py-2 rounded-lg w-full text-center"
-  >
-    ADD CAREGIVER
-  </router-link>
 </template>
 
 <script setup>
@@ -76,10 +78,18 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
+const bodyParts = ['Face/Mouth', 'Left Arm', 'Right Arm', 'Left Leg', 'Right Leg', 'Hand/Arm']
+
+const selectedParts = ref([])
 const isOpen = ref(false)
 
 const toggleMenu = () => {
   isOpen.value = !isOpen.value
+}
+
+const goToNext = () => {
+  console.log('Selected parts:', selectedParts.value)
+  // Navigate to next screen
 }
 
 const logout = () => {
@@ -87,6 +97,6 @@ const logout = () => {
   router.push('/login')
 }
 const editprofile = () => {
-  router.push('/editprofilesurvivor')
+  router.push('/editprofilecaregiver')
 }
 </script>

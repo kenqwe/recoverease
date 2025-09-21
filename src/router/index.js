@@ -5,12 +5,16 @@ import DashboardView from '@/views/Survivor/DashboardView.vue'
 import ForgotPassword from '@/views/Auth/ForgotPassword.vue'
 import ExerciseGuide from '@/views/Survivor/ExerciseGuide.vue'
 import SpeechPractice from '@/views/Survivor/SpeechPractice.vue'
+import SpeechPracticeMonitor from '@/views/Caregiver/SpeechPracticeMonitor.vue'
 import SpeechPracticeEasy from '@/views/Survivor/SpeechPracticeEasy.vue'
 import SpeechPracticeMedium from '@/views/Survivor/SpeechPracticeMedium.vue'
 import SpeechPracticeHard from '@/views/Survivor/SpeechPracticeHard.vue'
 import MedicationView from '@/views/Survivor/MedicationView.vue'
+import CGMedication from '@/views/Caregiver/CGMedication.vue'
 import AddMedication from '@/views/Survivor/AddMedication.vue'
+import CGAddMedication from '@/views/Caregiver/CGAddMedication.vue'
 import ConnectCaregiver from '@/views/Survivor/ConnectCaregiver.vue'
+import ConnectSurvivor from '@/views/Caregiver/ConnectSurvivor.vue'
 import AddCaregiver from '@/views/Survivor/AddCaregiver.vue'
 import ExerciseList from '@/views/Survivor/ExerciseList.vue'
 import CaregiverDashboard from '@/views/Caregiver/CaregiverDashboard.vue'
@@ -18,6 +22,8 @@ import EmergencyLog from '@/views/Caregiver/EmergencyLog.vue'
 import EditProfileCaregiver from '@/views/Caregiver/EditProfileCaregiver.vue'
 import EditProfileSurvivor from '@/views/Survivor/EditProfileSurvivor.vue'
 import CaregiverExerciseList from '@/views/Caregiver/CaregiverExerciseList.vue'
+import AdminDashboard from '@/views/Admin/AdminDashboard.vue'
+import EditAffectedParts from '@/views/Caregiver/EditAffectedParts.vue'
 
 const routes = [
   { path: '/', name: 'Login', component: LoginView }, // landing page is LoginView
@@ -33,8 +39,11 @@ const routes = [
   { path: '/speechpracticemedium', name: 'SpeechPracticeMedium', component: SpeechPracticeMedium },
   { path: '/speechpracticehard', name: 'SpeechPracticeHard', component: SpeechPracticeHard },
   { path: '/medication', name: 'Medication', component: MedicationView },
+  { path: '/CGmedication', name: 'CGMedication', component: CGMedication },
   { path: '/addmedication', name: 'AddMedication', component: AddMedication },
+  { path: '/CGaddmedication', name: 'CGAddMedication', component: CGAddMedication },
   { path: '/connectcaregiver', name: 'ConnectCaregiver', component: ConnectCaregiver },
+  { path: '/connectsurvivor', name: 'ConnectSurvivor', component: ConnectSurvivor },
   { path: '/addcaregiver', name: 'AddCaregiver', component: AddCaregiver },
   { path: '/exerciselist', name: 'ExerciseList', component: ExerciseList },
   {
@@ -44,6 +53,13 @@ const routes = [
   },
   { path: '/caregiverdashboard', name: 'CaregiverDashboard', component: CaregiverDashboard },
   { path: '/emergencylog', name: 'EmergencyLog', component: EmergencyLog },
+  {
+    path: '/speechpracticemonitor',
+    name: 'SpeechPracticeMonitor',
+    component: SpeechPracticeMonitor,
+  },
+  { path: '/admindashboard', name: 'AdminDashboard', component: AdminDashboard },
+  { path: '/editaffectedparts', name: 'EditAffectedParts', component: EditAffectedParts },
 ]
 
 const router = createRouter({

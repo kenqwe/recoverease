@@ -79,9 +79,15 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 
 function selectLevel(level) {
-  // Navigate to a practice screen depending on level
-  router.push(`/speechpractice${level}`)
+  if (level === 'easy') {
+    router.push('/speechmonitoreasy')
+  } else if (level === 'medium') {
+    router.push('/speechmonitormedium')
+  } else if (level === 'hard') {
+    router.push('/speechmonitorhard')
+  }
 }
+
 const isOpen = ref(false)
 
 const toggleMenu = () => {

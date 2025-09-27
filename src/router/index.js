@@ -15,6 +15,7 @@ import AddMedication from '@/views/Survivor/AddMedication.vue'
 import CGAddMedication from '@/views/Caregiver/CGAddMedication.vue'
 import ConnectCaregiver from '@/views/Survivor/ConnectCaregiver.vue'
 import ConnectSurvivor from '@/views/Caregiver/ConnectSurvivor.vue'
+import ConnectSurvivor1 from '@/views/Caregiver/ConnectSurvivor1.vue'
 import AddCaregiver from '@/views/Survivor/AddCaregiver.vue'
 import ExerciseList from '@/views/Survivor/ExerciseList.vue'
 import CaregiverDashboard from '@/views/Caregiver/CaregiverDashboard.vue'
@@ -24,6 +25,11 @@ import EditProfileSurvivor from '@/views/Survivor/EditProfileSurvivor.vue'
 import CaregiverExerciseList from '@/views/Caregiver/CaregiverExerciseList.vue'
 import AdminDashboard from '@/views/Admin/AdminDashboard.vue'
 import EditAffectedParts from '@/views/Caregiver/EditAffectedParts.vue'
+import EnterPin from '@/views/Caregiver/EnterPin.vue'
+import ScanQr from '@/views/Caregiver/ScanQr.vue'
+import SpeechMonitorEasy from '@/views/Caregiver/SpeechMonitorEasy.vue'
+import SpeechMonitorMedium from '@/views/Caregiver/SpeechMonitorMedium.vue'
+import SpeechMonitorHard from '@/views/Caregiver/SpeechMonitorHard.vue'
 
 const routes = [
   { path: '/', name: 'Login', component: LoginView }, // landing page is LoginView
@@ -60,6 +66,12 @@ const routes = [
   },
   { path: '/admindashboard', name: 'AdminDashboard', component: AdminDashboard },
   { path: '/editaffectedparts', name: 'EditAffectedParts', component: EditAffectedParts },
+  { path: '/connectsurvivor1', name: 'ConnectSurvivor1', component: ConnectSurvivor1 },
+  { path: '/enterpin', name: 'EnterPin', component: EnterPin },
+  { path: '/scanqr', name: 'ScanQr', component: ScanQr },
+  { path: '/speechmonitoreasy', name: 'SpeechMonitorEasy', component: SpeechMonitorEasy },
+  { path: '/speechmonitormedium', name: 'SpeechMonitorMedium', component: SpeechMonitorMedium },
+  { path: '/speechmonitorhard', name: 'SpeechMonitorHard', component: SpeechMonitorHard },
 ]
 
 const router = createRouter({
